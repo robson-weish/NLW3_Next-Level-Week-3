@@ -2,6 +2,7 @@
 
 const express = require("express");
 const path = require("path");
+const pages = require("./pages.js");
 
 // Aqui inicia a biblioteca express
 
@@ -17,12 +18,12 @@ server
   .set('views', path.join(__dirname, 'views'))
   .set('view engine' , 'hbs')
 
-  // Um caminho para rota
+  // Rotas da Aplicação
   // console.log(path.join(__dirname, 'views', 'index.html')) ---- COM ESSE CONSOLE.LOG VOCÊ CONSEGUE VER O CAMINHO NO TERMINAL PARA AONDE A ROTA TA APONTANDO
 
-  .get("/", (request, response) => {
-    return response.render('index')
-  })
-
+  .get("/", pages.index )
+  .get("/orphanage", pages.orphanage )
+  .get("/orphanages", pages.orphanages )
+  .get("/create-orphanage", pages.createOrphanage )
 // Aqui que liga o servidor
 server.listen(5500);
