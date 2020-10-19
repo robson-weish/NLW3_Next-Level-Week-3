@@ -12,8 +12,17 @@ const options = {
     zoomControl: false
 }
 
+
+// ENVIO DE DADOS FEITO VIA HBS
+// esse envio e feio por um atributo do HBS, e enviado por um JavaScript
+
+const lat = document.querySelector('span[data-lat]').dataset.lat
+const lng = document.querySelector('span[data-lng]').dataset.lng
+
+
 // Create Map
-const map = L.map('mapid' , options).setView([-27.222633, -49.6455874], 15);
+
+const map = L.map('mapid' , options).setView([lat, lng], 15);
 
 L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"    
@@ -30,7 +39,7 @@ const icon = L.icon({
 
 // Criação do marcador
 
-L.marker([-27.222633, -49.6455874], {icon} )
+L.marker([lat, lng], {icon} )
   .addTo(map)
 
 // O ';' e para encerramento de um codigo 
