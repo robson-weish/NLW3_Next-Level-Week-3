@@ -123,3 +123,17 @@ function toggleSelect(event){
 
     console.log("Entrando corretamente no Toggle")
 }
+/*
+function validate(event) {
+
+    // VALIDAR SE LAT E LNG ESTÃO PREENCHIDOS
+
+    const needsLatAndLng = true;
+
+    if (needsLatAndLng) {
+        event.preventDefault()
+        alert('Selecione um ponto no mapa!')
+    }
+    
+}
+*/

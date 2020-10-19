@@ -11,6 +11,12 @@ const server = express();
 //Arquivo estatico
 
 server
+  // envio do formulario
+
+  .use(express.urlencoded({ extended: true }))
+
+  // UTILIZAÇÃO DOS ARQUIVOS DO PUBLIC
+
   .use(express.static("public"))
 
   // Configurar template -- Handlebars
@@ -25,5 +31,6 @@ server
   .get("/orphanage", pages.orphanage )
   .get("/orphanages", pages.orphanages )
   .get("/create-orphanage", pages.createOrphanage )
+  .post('/save-orphanage' , pages.saveOrphanage)
 // Aqui que liga o servidor
 server.listen(5500);
